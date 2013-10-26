@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com--><!-- Last Published: Sat Oct 26 2013 21:22:02 GMT+0000 (UTC) -->
+<html data-wf-site="526bc5986d0c506071000368">
+  <head>
+    <meta charset="utf-8">
+    <title>Trabajo Libre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/webflow.css">
+    <link rel="stylesheet" type="text/css" href="css/trabajolibre.webflow.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ["Bitter:400,700","Montserrat:400,700","Changa One:400"]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+    <!--script type="text/javascript" src="js/webflow.js" defer></script-->
+  </head><body>
+  <div class="w-container">
+    <div>
+      <header class="w-row">
+        <div class="w-col w-col-4">
+          <div class="logo_text">TrabajoLibre</div>
+        </div>
+        <div class="w-col w-col-8 navwrapper"><a class="nav" href="#">¿Como Funciona?</a><a class="nav" href="#">LOGIN</a>
+        </div>
+      </header>
+    </div>
+    <div class="head">
+      <h1 class="color">Limpia tu casa, es SIMPLE, REDITUABLE y CONFIABLE. </h1>
+    </div>
+    <div>
+      <div class="w-row">
+        <div class="w-col w-col-6 empleado_empleador">
+          <h1>Encuentra servicios de limpieza confiable</h1>
+          <img src="images/cleaningFamily.png" width="330" height="429" alt="cleaningFamily.png">
+        </div>
+        <div class="w-col w-col-6 w-clearfix empleado_empleador">
+          <h1>Conviertete en una trabajadora  exitosa</h1>
+          <img class="domesticimage" src="images/domestic%402x.png" alt="domestic%402x.png">
+        </div>
+      </div>
+      <div class="w-row">
+        <div class="w-col w-col-6">
+          <div class="w-form">
+            <form id="cliente_form" class="senorasignup" name="email-form" data-name="Email Form">
+              <h3>Busco servicio domestico(beta)</h3>
+              <input id="nombre" class="w-input" type="text" placeholder="Escribe tu nombre completo" name="nombre" data-name="nombre"></input>
+              <input id="email" class="w-input" type="text" placeholder="Escribe tu email" name="email" data-name="Email"></input>
+              <input id="direccion" class="w-input" type="text" placeholder="Escribe tu direcciòn" name="direccion" data-name="direccion"></input>
+              <input id="estado" class="w-input" type="text" placeholder="Estado en que vives" name="estado" data-name="estado"></input>
+              <input id="municipio" class="w-input" type="text" placeholder="Municipio/Ciudad" name="municipio" data-name="municipio"></input>
+              <input id="register_client" class="w-button registrate" type="submit" value="Registrate" data-wait="Please wait..."></input>
+            </form>
+            <div id="cliente_success"class="w-form-done">
+              <p>Gracias por registrarte en cuanto lanzemos te informaremos que ya puedes encontrar a la persona que buscas.</p>
+            </div>
+            <div class="w-form-fail">
+              <p>Oops! Something went wrong while submitting the form :(</p>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="w-form">
+            <form id="worker_form" class="senorasignup" name="email-form" data-name="Email Form">
+              <h3>Busco trabajo(beta)</h3>
+              <input id="nombre_w" class="w-input" type="text" placeholder="Escribe tu nombre completo" name="nombre" data-name="nombre"></input>
+              <input id="celular_w" class="w-input" type="text" placeholder="Escribe tu numero de celular" name="celular" data-name="Celular"></input>
+              <input id="estado_w" class="w-input" type="text" placeholder="Estado en que vives" name="estado" data-name="estado"></input>
+              <input id="municipio_w" class="w-input" type="text" placeholder="Municipio/Ciudad" name="municipio" data-name="municipio"></input>
+              <input id="direccion_w" class="w-input" type="text" placeholder="Escribe tu direcciòn, con la colonia nos basta" name="direccion" data-name="direccion"></input>
+              <input id="register_worker" class="w-button registrate" type="submit" value="Registrate" data-wait="Please wait..."></input>
+            </form>
+            <div id="worker_success" class="w-form-done">
+              <p>Gracias por registrarte pronto recibiras noticias de nosotros y te ayudaremos a conseguir trabajo.</p>
+            </div>
+            <div class="w-form-fail">
+              <p>Oops! Something went wrong while submitting the form :(</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial-text">"Lo que he buscado por tanto tiempo, ¿Dónde pago?" Gabriel Contreras, Cancún</div>
+    </div>
+    <div>
+      <div class="w-row">
+        <div class="w-col w-col-3 profile">
+          <img class="profile_img" src="images/profile3.jpg" width="102" alt="profile3.jpg">
+          <div class="name">Maria Perez</div><a class="button hire" href="#">HIRE ME</a>
+        </div>
+        <div class="w-col w-col-3 profile">
+          <img class="profile_img" src="images/profile2.jpg" width="102" alt="profile2.jpg">
+          <div class="name">Guadalupe Dzul</div><a class="button hire" href="#">HIRE ME</a>
+        </div>
+        <div class="w-col w-col-3 profile">
+          <img class="profile_img" src="images/profile4.jpg" width="102" alt="profile4.jpg">
+          <div class="name">Diana Pech</div><a class="button hire" href="#">HIRE ME</a>
+        </div>
+        <div class="w-col w-col-3 profile">
+          <img class="profile_img" src="images/profile1.jpg" width="102" alt="profile1.jpg">
+          <div class="name">Juana Gonzalez</div><a class="button hire" href="#">HIRE ME</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <footer class="w-row">
+        <div class="w-col w-col-4">
+          <div class="logo_footer">TrabajoLibre</div>
+        </div>
+        <div class="w-col w-col-4">
+          <div class="descripcion"></div>
+        </div>
+        <div class="w-col w-col-4 footer-links"></div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
