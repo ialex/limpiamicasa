@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. http://www.webflow.com--><!-- Last Published: Sat Oct 26 2013 19:26:46 GMT+0000 (UTC) -->
+<!-- This site was created in Webflow. http://www.webflow.com--><!-- Last Published: Sat Oct 26 2013 21:22:02 GMT+0000 (UTC) -->
 <html data-wf-site="526bc5986d0c506071000368">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/webflow.css">
-    <link rel="stylesheet" type="text/css" href="css/trabajolibre.login.css">
+    <link rel="stylesheet" type="text/css" href="css/trabajolibre.profile_w.css">
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>
       WebFont.load({
@@ -17,7 +17,6 @@
       });
     </script>
     <link rel="icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
-    <script type="text/javascript" src="js/webflow.js" defer></script>
   </head><body>
   <div class="w-container">
     <div>
@@ -30,11 +29,20 @@
       </header>
     </div>
     <div>
+      <div class="msgerror">
+        <div class="errortext">Lo sentimos ocurrió un error actualizando tu información, revisa tu información.</div>
+      </div>
       <div class="w-form loginform">
         <form name="email-form" data-name="Email Form">
-          <h1>Inicia Sesion</h1>
+          <h1>Perfil</h1>
+          <h2>Maria Perez</h2>
+          <input class="w-input" type="text" placeholder="Foto" name="foto" required="required" data-name="foto"></input>
+          <input class="w-input" type="text" placeholder="Nombre" name="nombre" required="required" data-name="nombre"></input>
           <input class="w-input" type="text" placeholder="Email" name="email" data-name="Email" required="required"></input>
           <input class="w-input" type="text" placeholder="Contraseña" name="password" data-name="password" required="required"></input>
+          <input class="w-input" type="text" placeholder="Example Text" name="field" required="required" data-name="Field"></input>
+          <label>Descripcion</label>
+          <textarea class="w-input" placeholder="Escribe una pequeña descripcion de ti mismo" name="descripcion" data-name="descripcion"></textarea>
           <input class="w-button loginbutton hire" type="submit" value="Submit" data-wait="Please wait..."></input>
         </form>
         <div class="w-form-done">
