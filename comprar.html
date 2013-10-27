@@ -15,7 +15,7 @@
   <div class="section header" id="page-nav-top">
     <div class="w-row header">
       <div class="w-col w-col-3 logo-bar">
-        <a class="w-inline-block logolink" href="#page-nav-top" target="_self">
+        <a class="w-inline-block logolink2" href="#page-nav-top" target="_self">
           <img class="company-logo" src="images/logo-horizontal%20500.png" width="250" alt="logo-horizontal%20500.png">
         </a>
       </div>
@@ -84,14 +84,23 @@
     <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript">
         $( document ).ready(function() {
-          var url_pagos = {
-            "soltero": "https://ch.eckout.com/secure/soltero",
-            "familia": "https://ch.eckout.com/secure/familia",
-            "granFamilia": "http://ch.eckout.com/granfamilia"
+          
+          function getPagos(){
+              return url_pagos = {
+                        "soltero": "https://ch.eckout.com/secure/soltero",
+                        "familia": "https://ch.eckout.com/secure/familia",
+                        "familiaGrande": "http://ch.eckout.com/granfamilia"
+                      }
           }
-          var plan = window.location.search.replace( "?", "" );
-          var selected = plan.split("=")[1] + ".jpg";
-          console.log(selected);
+
+          function getParams(){
+              var plan = window.location.search.replace( "?", "" );
+              var selected = plan.split("=")[1] + ".jpg";
+              return selected
+          }
+          
+          var selected = getParams();
+          //console.log(selected);
           if ( selected == "undefined.jpg" ){
               selected = "familia.jpg";
               //console.log("si");
@@ -100,10 +109,22 @@
             //console.log("no");
             $("#plan").attr("src", "images/" + selected);
           }
+
           $("#buy_form").click(function(e){
               e.preventDefault();
-              buy_url = url_pagos[selected.split(".")[0]];
-              window.location = buy_url;
+              var selected = getParams();
+              if ( selected == "undefined.jpg" ){
+                  selected = "familia.jpg";
+                  //console.log("si");
+                  url_pagos = getPagos();
+                  buy_url = url_pagos[selected.split(".")[0]];
+                  window.location = buy_url;
+              }else{
+                url_pagos = getPagos();
+                buy_url = url_pagos[selected.split(".")[0]];
+                window.location = buy_url;
+              }
+              
           });
         });
     </script>
