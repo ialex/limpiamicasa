@@ -20,42 +20,48 @@ $( document ).ready(function() {
         client.save(null, {
           success: function(client) {
             // Execute any logic that should take place after the object is saved.
-            $("#cliente_form").hide()
-            $("#cliente_success").show()
+            //$("#cliente_form").hide()
+            //$("#cliente_success").show()
           },
           error: function(client, error) {
             // Execute any logic that should take place if the save fails.
             // error is a Parse.Error with an error code and description.
-            alert('Failed to create new object, with error code: ' + error.description);
+            console.log('Failed to create new object, with error code: ' + error.description);
+            //$("#cliente_form").hide()
+            //$("#cliente_success").show()
           }
         });
     });
 
-    $( "#register_worker" ).click(function( e ) {
+    /* FORMULARIO DE CONTACTO */
+    $( "#contacto_send" ).click(function( e ) {
         e.preventDefault();
         
         // Simple syntax to create a new subclass of Parse.Object.
-        var Worker = Parse.Object.extend("Worker");
+        var Contacto = Parse.Object.extend("Contacto");
          
         // Create a new instance of that class.
-        var worker = new Worker();
+        var contacto = new Contacto();
 
-        worker.set("nombre", $("#nombre_w").val());
-        worker.set("celular", $("#celular_w").val());
-        worker.set("direccion", $("#direccion_w").val());
-        worker.set("estado", $("#estado_w").val());
-        worker.set("ciudad", $("#municipio_w").val());
+        contacto.set("nombre", $("#nombre").val());
+        contacto.set("comentarios", $("#comentarios").val());
+        contacto.set("email", $("email").val());
+
          
-        worker.save(null, {
+        contacto.save(null, {
           success: function(client) {
             // Execute any logic that should take place after the object is saved.
-            $("#worker_form").hide()
-            $("#worker_success").show()
+            $("#contact_form").hide()
+            $("#contact_success").show()
+            //console.log("success");
           },
           error: function(client, error) {
             // Execute any logic that should take place if the save fails.
             // error is a Parse.Error with an error code and description.
-            alert('Failed to create new object, with error code: ' + error.description);
+            //console.log('Failed to create new object, with error code: ' + error.description);
+            //$("#worker_form").hide()
+            //$("#worker_success").show()
+            return
           }
         });
     });
