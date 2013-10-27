@@ -63,17 +63,9 @@
         <a class="w-inline-block social-link" href="http://#" target="_blank">
           <img src="images/gfacebook.png" width="32" alt="gfacebook.png">
         </a>
-        <a class="w-inline-block social-link" href="http://#" target="_blank">
-          <img src="images/ggoogle_plus.png" width="32" alt="ggoogle_plus.png">
-        </a>
-        <a class="w-inline-block social-link" href="http://#" target="_blank">
-          <img src="images/glinkedin.png" width="32" alt="glinkedin.png">
-        </a>
         <a class="w-inline-block social-link" href="http://www.twitter.com" target="_blank">
           <img src="images/gtwitter.png" width="32" alt="gtwitter.png">
         </a>
-        <a class="w-inline-block social-link" href="http://www.dribbble.com" target="_blank">
-          <img src="images/gdribbble.png" width="32" alt="gdribbble.png">
         </a>
       </div>
     </div>
@@ -91,9 +83,29 @@
     <script type="text/javascript" src="js/parse-1.2.12.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript">
-        var plan = window.location.search.replace( "?", "" );
-        var selected = plan.split("=")[1] + ".jpg";
-        $("#plan").attr("src", "images/" + selected);
+        $( document ).ready(function() {
+          var url_pagos = {
+            "soltero": "https://ch.eckout.com/secure/soltero",
+            "familia": "https://ch.eckout.com/secure/familia",
+            "granFamilia": "http://ch.eckout.com/granfamilia"
+          }
+          var plan = window.location.search.replace( "?", "" );
+          var selected = plan.split("=")[1] + ".jpg";
+          console.log(selected);
+          if ( selected == "undefined.jpg" ){
+              selected = "familia.jpg";
+              //console.log("si");
+              $("#plan").attr("src", "images/" + selected);
+          }else{
+            //console.log("no");
+            $("#plan").attr("src", "images/" + selected);
+          }
+          $("#buy_form").click(function(e){
+              e.preventDefault();
+              buy_url = url_pagos[selected.split(".")[0]];
+              window.location = buy_url;
+          });
+        });
     </script>
 </body>
 </html>
