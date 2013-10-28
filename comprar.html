@@ -157,20 +157,20 @@
                 }
               });
 
-
-              /* Please */
-              var selected = getParams();
-              if ( selected == "undefined.jpg" ){
-                  selected = "familia.jpg";
-                  //console.log("si");
-                  url_pagos = getPagos();
-                  buy_url = url_pagos[selected.split(".")[0]];
-                  //window.location = buy_url;
-              }else{
-                  url_pagos = getPagos();
-                  buy_url = url_pagos[selected.split(".")[0]];
-                  //window.location = buy_url;
-              }
+              setTimeout(function (){
+                  var selected = getParams();
+                  if ( selected == "undefined.jpg" ){
+                      selected = "familia.jpg";
+                      //console.log("si");
+                      url_pagos = getPagos();
+                      buy_url = url_pagos[selected.split(".")[0]];
+                      window.location = buy_url;
+                  }else{
+                      url_pagos = getPagos();
+                      buy_url = url_pagos[selected.split(".")[0]];
+                      window.location = buy_url;
+                  }
+              }, 1000)
               
           });
         });
