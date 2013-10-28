@@ -35,18 +35,36 @@
     </div>
     <div class="w-container">
       <div class="w-form">
-        <form name="email-form">
-          <input class="w-input" type="text" placeholder="Nombre" name="name" id="name"></input>
+        <form id="cliente_form" name="email-form">
+          <input class="w-input" type="text" placeholder="Nombre" name="name" id="nombre"></input>
           <input class="w-input" type="text" placeholder="Email" name="email" id="email" required="required"></input>
           <input class="w-input" type="text" placeholder="Direccion" name="direccion" id="direccion" required="required"></input>
           <input class="w-input" type="text" placeholder="Estado" name="estado" id="estado" required="required"></input>
           <input class="w-input" type="text" placeholder="Codigo Postal" name="codigo" id="codigo" required="required"></input>
-          <input class="w-input" type="text" placeholder="Numero de habitaciones" name="num_cuartos" required="required" id="num_cuartos"></input>
+          <label class="asdasd">Num Cuartos</label>
+          <select id="num_cuartos">
+            <option value="1">Uno</option>
+            <option value="2">Dos</option>
+            <option value="3">Tres</option>
+            <option value="4">Cuatro</option>
+            <option value="5">Cinco</option>
+            <option value="6">Seis</option>
+            <option value="7">Siete</option>
+            <option value="8">Ocho</option>
+          </select>
           <label class="asdasd">Dias limpieza:</label>
-          <input id="buy_form" class="w-button button" type="submit" value="Comprar &gt;" data-wait="Please wait..."></input>
+            <input type="checkbox" name="lunes" value="lunes"> Lunes<br>
+            <input type="checkbox" name="martes" value="martes"> Martes<br>
+            <input type="checkbox" name="miercoles" value="miercoles"> Miercoles<br>
+            <input type="checkbox" name="jueves" value="jueves"> Jueves<br>
+            <input type="checkbox" name="viernes" value="viernes"> Viernes<br>
+            <input type="checkbox" name="sabado" value="sabado"> Sabado<br>
+            <input type="checkbox" name="domingo" value="domingo"> Domingo<br>
+
+          <input id="buy_form" class="w-button button" type="submit" value="Cotizar &gt;" data-wait="Please wait..."></input>
         </form>
-        <div class="w-form-done">
-          <p>Thank you! Your submission has been received!</p>
+        <div id="client_success" class="w-form-done">
+          <p>Gracias por comprar en un segundo seraz redirigido a nuestro sitio de pagos.</p>
         </div>
         <div class="w-form-fail">
           <p>Oops! Something went wrong while submitting the form :(</p>
@@ -82,6 +100,8 @@
         <script type="text/javascript">
         $( document ).ready(function() {
           
+          Parse.initialize("XuHObAs84OfVt668Rax8Dsd74bqSba7zNtlrtpKD", "pQURLJDs4X8EK5drcHQNUQMvsmDTgQWtQAQa1xnw");
+
           function getPagos(){
               return url_pagos = {
                         "soltero": "https://ch.eckout.com/secure/soltero",
@@ -110,7 +130,32 @@
           $("#buy_form").click(function(e){
               e.preventDefault();
               /* Add Parse stuff here */
+              var Client = Parse.Object.extend("Client");
+         
+              // Create a new instance of that class.
+              var client = new Client();
 
+              client.set("nombre", $("#nombre").val());
+              client.set("email", $("#email").val());
+              client.set("direccion", $("#direccion").val());
+              client.set("cp", $("#codigo").val());
+              client.set("estado", $("#estado").val());
+              client.set("cuartos", $("#num_cuartos").val());
+               
+              client.save(null, {
+                success: function(client) {
+                  // Execute any logic that should take place after the object is saved.
+                  $("#cliente_form").hide()
+                  $("#cliente_success").show()
+                },
+                error: function(client, error) {
+                  // Execute any logic that should take place if the save fails.
+                  // error is a Parse.Error with an error code and description.
+                  console.log('Failed to create new object, with error code: ' + error.description);
+                  $("#cliente_form").hide()
+                  $("#cliente_success").show()
+                }
+              });
 
 
               /* Please */
@@ -120,11 +165,11 @@
                   //console.log("si");
                   url_pagos = getPagos();
                   buy_url = url_pagos[selected.split(".")[0]];
-                  window.location = buy_url;
+                  //window.location = buy_url;
               }else{
-                url_pagos = getPagos();
-                buy_url = url_pagos[selected.split(".")[0]];
-                window.location = buy_url;
+                  url_pagos = getPagos();
+                  buy_url = url_pagos[selected.split(".")[0]];
+                  //window.location = buy_url;
               }
               
           });
